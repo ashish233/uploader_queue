@@ -1,0 +1,29 @@
+{
+  "name": "opt-lib",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "async": "^2.6.1",
+    "axios": "^0.18.0",
+    "cron": "^1.3.0",
+    "csvtojson": "^2.0.6",
+    "exceljs": "^1.5.1",
+    "ftp": "^0.3.10",
+    "jsontoxml": "^1.0.0",
+    "kue": "^0.11.6",
+    "lodash": "^4.17.10",
+    "path": "^0.12.7",
+    "request": "^2.87.0",
+    "underscore": "^1.9.1",
+    "xls-to-json-lc": "^0.3.4",
+    "xlsx-to-json-lc": "^0.5.0",
+    "xml2js": "^0.4.19"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
