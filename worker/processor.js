@@ -38,10 +38,10 @@ const sendErrorEmail = function(queue,item, err) {
       );
     });
 };
-module.exports = function(queue,cbuploader,config,globalPath) {
+module.exports = function(queue,cbuploader,config,globalPath,numberOfProcess) {
   console.log(globalPath);
   var brandHash ={};
-  queue.process("catalogbatchqueue", 4, function(job, ctx, done) {
+  queue.process("catalogbatchqueue", numberOfProcess, function(job, ctx, done) {
     job.log("-----process----");
     let item = job.data;
     if (item != undefined && brandHash[job.data.optId] == undefined) {

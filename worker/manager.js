@@ -7,7 +7,7 @@ let CronJob = require("cron").CronJob,
 var path = require("path");
 var supportedFormat;
 
-module.exports = function(queue,brands,fileFormats) {
+module.exports = function(queue,brands,fileFormats,numberOfProcess) {
   supportedFormat = fileFormats;
   console.log("in managaer");
   console.log(supportedFormat)
@@ -17,7 +17,7 @@ module.exports = function(queue,brands,fileFormats) {
       console.log("----- Manager Cron ------");
 
       selectRandomBrand(queue,brands,fileFormats);
-    processQueue(queue);
+    processQueue(queue,numberOfProcess);
     },
     start: true,
     timeZone: "America/Los_Angeles"
@@ -83,8 +83,8 @@ function isFileInSupportedFormat(name) {
   return supportedFormat.indexOf(ext) > -1;
 }
 
-let processQueue = queue => {
-  queue.process("brandmanagerqueue", 1, async function(job, ctx, done) {
+let processQueue = (queue,numberOfProcess) => {
+  queue.process("brandmanagerqueue",numberOfProcess, async function(job, ctx, done) {
     job.log("----Processing brandmanagerqueue-----", job.data.brand.optId);
     let brand = job.data.brand;
     console.log("++++++++");
